@@ -254,13 +254,13 @@ public class Scanner
             }
 
             if (Peek() == '.')
-                Pascal.Error(_line, _column, "Invalid literal");
+                Pascal.Error(_line, _column, "Unexpected character");
                 return;
         }
 
         if (IsAlpha(Peek()))
         {
-            Pascal.Error(_line, _column, "Invalid literal");
+            Pascal.Error(_line, _column, "Unexpected character");
             return;
         }
 

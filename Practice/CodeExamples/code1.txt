@@ -4,6 +4,7 @@ var
   number: integer;
 
 begin
+  {
   writeln('Enter number:');
   readln(number);
 
@@ -11,7 +12,7 @@ begin
   begin
     writeln('Number is positive');
   end
-  else if number < 0.0 then
+  else if number < 0 then
   begin
     writeln('Number is negative');
   end

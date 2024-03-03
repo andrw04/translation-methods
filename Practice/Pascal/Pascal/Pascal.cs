@@ -9,8 +9,6 @@ public class Pascal
     {
         if (args.Length == 0)
         {
-            /*            Console.Write("Enter file path: ");
-                        var path = Console.ReadLine();*/
             var path = "F:\\BSUIR\\6\\MTran\\Practice\\CodeExamples\\code1.txt";
             RunFile(path);
 
@@ -66,6 +64,7 @@ public class Pascal
 
         ConsoleTableBuilder
             .From(tableData)
+            .WithTitle("Token table")
             .WithColumn(new[] { "N", "Token type", "Lexeme", "Line", "Column" })
             .ExportAndWriteLine();
     }
