@@ -1,0 +1,27 @@
+program Example1;
+
+var
+  number: integer;
+
+begin
+  writeln('Enter number:');
+  readln(number);
+
+  if number > 0 then
+  begin
+    writeln('Number is positive');
+  end
+  else if number < 0 then
+  begin
+    writeln('Number is negative');
+  end
+  else
+  begin
+    writeln('Number is zero');
+  end;
+
+  for number := 1 to 5 do
+  begin
+    writeln('This is string number ', number);
+  end;
+end.

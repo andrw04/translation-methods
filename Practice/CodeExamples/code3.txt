@@ -1,0 +1,25 @@
+program Example3;
+
+const
+  MAX_SIZE = 5;
+
+type
+  TStringArray = array[1..MAX_SIZE] of string;
+
+var
+  strings: TStringArray;
+  i: integer;
+
+begin
+  writeln('Enter ', MAX_SIZE, ' strings:');
+  for i := 1 to MAX_SIZE do
+  begin
+    readln(strings[i]);
+  end;
+
+  writeln('You entered:');
+  for i := 1 to MAX_SIZE do
+  begin
+    writeln(strings[i]);
+  end;
+end.
