@@ -37,6 +37,7 @@ public enum TokenType
     ASM,
     BEGIN,
     BREAK,
+    BOOLEAN,
     CASE,
     CONST,
     CONSTRUCTOR,

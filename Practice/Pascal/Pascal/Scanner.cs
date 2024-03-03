@@ -1,4 +1,6 @@
-﻿namespace Pascal;
+﻿using System.Globalization;
+
+namespace Pascal;
 
 public class Scanner
 {
@@ -16,6 +18,7 @@ public class Scanner
         { "asm", TokenType.ASM },
         { "begin", TokenType.BEGIN },
         { "break", TokenType.BREAK },
+        { "boolean", TokenType.BOOLEAN },
         { "case", TokenType.CASE },
         { "const", TokenType.CONST },
         { "constructor", TokenType.CONSTRUCTOR },
@@ -179,6 +182,8 @@ public class Scanner
             case '{': // multiline comment
                 while (Peek() != '}' && !IsAtEnd())
                     Advance();
+                if (IsAtEnd())
+                    Pascal.Error(_line, _column, "Unterminated multiline comment");
                 break;
             case ' ':
             case '\r':
@@ -195,7 +200,7 @@ public class Scanner
             default:
                 if (IsDigit(c))
                     Number();
-                else if (IsAlpha(c))
+                else if (IsAlpha(c) || c == '_')
                     Identifier();
                 else
                     Pascal.Error(_line, _column, "Unexpected character");
@@ -217,7 +222,7 @@ public class Scanner
             type = _keyWords[text];
         }
 
-        AddToken(TokenType.IDENTIFIER);
+        AddToken(type);
     }
 
     private bool IsDigit(char symbol) => symbol >= '0' && symbol <= '9';
@@ -247,10 +252,20 @@ public class Scanner
             {
                 Advance();
             }
+
+            if (Peek() == '.')
+                Pascal.Error(_line, _column, "Invalid literal");
+                return;
+        }
+
+        if (IsAlpha(Peek()))
+        {
+            Pascal.Error(_line, _column, "Invalid literal");
+            return;
         }
 
         AddToken(TokenType.NUMBER_LITERAL,
-            double.Parse(_source.Substring(_start, _current - _start)));
+            double.Parse(_source.Substring(_start, _current - _start), CultureInfo.InvariantCulture));
     }
 
     private void String(char symbol)

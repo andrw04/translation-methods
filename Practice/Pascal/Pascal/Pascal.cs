@@ -11,7 +11,7 @@ public class Pascal
         {
             /*            Console.Write("Enter file path: ");
                         var path = Console.ReadLine();*/
-            var path = "F:\\BSUIR\\6\\MTran\\Practice\\CodeExamples\\code3.txt";
+            var path = "F:\\BSUIR\\6\\MTran\\Practice\\CodeExamples\\code1.txt";
             RunFile(path);
 
         }
