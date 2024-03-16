@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Pascal;
+namespace Pascal.LexicalAnalysis;
 
 public class Scanner
 {
@@ -228,8 +228,8 @@ public class Scanner
     private bool IsDigit(char symbol) => symbol >= '0' && symbol <= '9';
 
     private bool IsAlpha(char symbol) =>
-        (symbol >= 'a' && symbol <= 'z') ||
-        (symbol >= 'A' && symbol <= 'Z') ||
+        symbol >= 'a' && symbol <= 'z' ||
+        symbol >= 'A' && symbol <= 'Z' ||
         symbol == '_';
 
     private bool IsAlphaNumeric(char symbol)
@@ -255,7 +255,7 @@ public class Scanner
 
             if (Peek() == '.')
                 Pascal.Error(_line, _column, "Unexpected character");
-                return;
+            return;
         }
 
         if (IsAlpha(Peek()))
@@ -320,7 +320,7 @@ public class Scanner
 
     private char Advance()
     {
-        return _source[_current++]; 
+        return _source[_current++];
     }
 
     private void AddToken(TokenType type) => AddToken(type, null);

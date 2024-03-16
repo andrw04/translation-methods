@@ -1,4 +1,4 @@
-﻿namespace Pascal;
+﻿namespace Pascal.LexicalAnalysis;
 
 public class Token
 {
@@ -8,7 +8,7 @@ public class Token
     private int _line;
     private int _column;
 
-    public TokenType Type {  get { return _type; } }
+    public TokenType Type { get { return _type; } }
     public string Lexeme { get { return _lexeme; } }
     public object? Literal { get { return _literal; } }
     public int Line { get { return _line; } }

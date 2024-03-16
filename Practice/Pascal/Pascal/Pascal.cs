@@ -1,4 +1,5 @@
-﻿using ConsoleTableExt;
+﻿using Pascal.LexicalAnalysis;
+using ConsoleTableExt;
 
 namespace Pascal;
 

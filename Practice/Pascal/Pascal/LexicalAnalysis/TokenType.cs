@@ -1,4 +1,4 @@
-﻿namespace Pascal;
+﻿namespace Pascal.LexicalAnalysis;
 
 public enum TokenType
 {
