@@ -45,6 +45,7 @@ public class Scanner
         { "of", TokenType.OF },
         { "operator", TokenType.OPERATOR },
         { "or", TokenType.OR },
+        { "not", TokenType.NOT },
         { "packed", TokenType.PACKED },
         { "procedure", TokenType.PROCEDURE },
         { "program", TokenType.PROGRAM },
@@ -83,7 +84,7 @@ public class Scanner
         { "raise", TokenType.RAISE },
         { "self", TokenType.SELF },
         { "threadvar", TokenType.THREADVAR },
-        { "try", TokenType.TRY }
+        { "try", TokenType.TRY },
     };
 
     public Scanner(string source)
@@ -213,7 +214,7 @@ public class Scanner
         while (IsAlphaNumeric(Peek()))
             Advance();
 
-        string text = _source.Substring(_current - _start);
+        string text = _source.Substring(_start, _current - _start);
 
         TokenType type = TokenType.IDENTIFIER;
 

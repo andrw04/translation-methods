@@ -64,6 +64,7 @@ public enum TokenType
     OF,
     OPERATOR,
     OR,
+    NOT,
     PACKED,
     PROCEDURE,
     PROGRAM,
